@@ -1,4 +1,6 @@
 site_name: Somdeep's Notes
+site_description: "Somdeep Kundu's personal notes on remote sensing, geospatial data and tools"
+site_author: "Somdeep Kundu"
 site_url: https://somdeepkundu.github.io/personal_knowledge_base/
 repo_url: https://github.com/somdeepkundu/personal_knowledge_base
 repo_name: somdeepkundu/personal_knowledge_base
@@ -8,16 +10,23 @@ docs_dir: notes
 
 theme:
   name: material
+  # Matches somdeepkundu.github.io: Desert Rose (light) / Dark Rose Tech (dark).
+  # Colours and fonts live in notes/assets/css/extra.css.
+  logo: assets/images/logo.svg
+  favicon: assets/images/favicon.svg
+  font:
+    text: Roboto
+    code: Roboto Mono
   palette:
     - scheme: default
-      primary: teal
-      accent: cyan
+      primary: custom
+      accent: pink
       toggle:
-        icon: material/brightness-7
+        icon: material/brightness-3
         name: Switch to dark mode
     - scheme: slate
-      primary: teal
-      accent: cyan
+      primary: custom
+      accent: pink
       toggle:
         icon: material/brightness-4
         name: Switch to light mode
@@ -38,6 +47,21 @@ theme:
 
 hooks:
   - hooks.py
+
+extra_css:
+  - assets/css/extra.css
+
+copyright: "Copyright &copy; Somdeep Kundu"
+
+extra:
+  social:
+    - icon: material/web
+      link: https://somdeepkundu.github.io/
+      name: Portfolio
+    - icon: fontawesome/brands/github
+      link: https://github.com/somdeepkundu
+    - icon: fontawesome/brands/linkedin
+      link: https://linkedin.com/in/somdeep-kundu
 
 markdown_extensions:
   - tables

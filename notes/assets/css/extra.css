@@ -1,0 +1,208 @@
+/* ═══════════════════════════════════════════════════════════════
+   NOTES — matches somdeepkundu.github.io (portfolio v1.2.0)
+   Light:  Desert Rose   — dusty pink, warm sand, deep wine
+   Dark:   Dark Rose Tech — deep plum-black with rose-gold glow
+   Fonts:  DM Serif Display (headings) + DM Sans (body)
+   ═══════════════════════════════════════════════════════════════ */
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap');
+
+/* ─── Desert rose tokens (light) ────────────────────────────── */
+:root {
+  --rose-deep:   #3d1f2d;
+  --rose-mid:    #8c4a6e;
+  --rose-warm:   #b06878;
+  --rose-blush:  #e8c8d4;
+  --rose-pale:   #f5e8ec;
+  --rose-cream:  #fdf4f5;
+  --rose-sand:   #c4a882;
+  --rose-shadow: rgba(61, 31, 45, 0.16);
+  --rose-glow:   rgba(176, 104, 120, 0.22);
+  --md-typeset-a-color: #8c4a6e;
+}
+
+/* ─── Dark Rose Tech tokens (dark) ──────────────────────────── */
+[data-md-color-scheme="slate"] {
+  --rose-deep:   #f5e4ec;
+  --rose-mid:    #d4889a;
+  --rose-warm:   #e8608a;
+  --rose-blush:  #2a1630;
+  --rose-pale:   #1c1022;
+  --rose-cream:  #0f0a14;
+  --rose-sand:   #c49aaa;
+  --rose-shadow: rgba(15, 10, 20, 0.7);
+  --rose-glow:   rgba(232, 96, 138, 0.18);
+  --md-typeset-a-color: #f07898;
+  --md-accent-fg-color: #e8608a;
+}
+
+/* ─── Header / nav ──────────────────────────────────────────── */
+[data-md-color-primary="custom"] {
+  --md-primary-fg-color:        #3d1f2d;
+  --md-primary-fg-color--light: #8c4a6e;
+  --md-primary-fg-color--dark:  #250f1a;
+  --md-primary-bg-color:        #ffffff;
+  --md-primary-bg-color--light: #ffffffb3;
+}
+
+[data-md-color-scheme="slate"] [data-md-color-primary="custom"] {
+  --md-primary-fg-color:        #120a18;
+  --md-primary-fg-color--light: #1c1022;
+  --md-primary-fg-color--dark:  #0a0610;
+}
+
+[data-md-color-scheme="slate"] {
+  --md-default-bg-color: #0f0a14;
+}
+
+/* active / hovered nav links in rose */
+.md-nav__link--active,
+.md-nav__link:hover { color: var(--rose-mid) !important; }
+[data-md-color-scheme="slate"] .md-nav__link--active,
+[data-md-color-scheme="slate"] .md-nav__link:hover { color: #f07898 !important; }
+
+/* ─── Global font ───────────────────────────────────────────── */
+.md-typeset {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 400;
+}
+
+.md-header__topic,
+.md-typeset h1,
+.md-typeset h3 {
+  font-family: 'DM Serif Display', Georgia, serif;
+  font-weight: 400;
+}
+
+.md-typeset h1 {
+  color: var(--rose-deep);
+  letter-spacing: 0.005em;
+}
+
+/* ─── Page fade-in ──────────────────────────────────────────── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.md-content__inner { animation: fadeUp 0.5s ease both; }
+
+@media (prefers-reduced-motion: reduce) {
+  .md-content__inner { animation: none; }
+}
+
+/* ─── Section heading accent ────────────────────────────────── */
+.md-typeset h2 {
+  font-family: 'DM Serif Display', Georgia, serif;
+  font-weight: 400;
+  position: relative;
+  padding-bottom: 0.45rem;
+}
+
+.md-typeset h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 2.5rem;
+  height: 2px;
+  background: linear-gradient(90deg, #3d1f2d, #b06878, transparent);
+  border-radius: 2px;
+}
+
+[data-md-color-scheme="slate"] .md-typeset h2::after {
+  background: linear-gradient(90deg, #e8608a, #c49aaa, transparent);
+}
+
+/* ─── Topic page: Summary / Last updated lines ──────────────── */
+.md-typeset h1 + p {
+  color: var(--rose-mid);
+  font-size: 0.78rem;
+}
+.md-typeset h1 + p strong { color: var(--rose-deep); font-weight: 600; }
+
+.md-typeset hr {
+  border-bottom: 1px solid var(--rose-blush);
+}
+
+/* ─── Note cards: every top-level bullet on a topic page ────── */
+.md-content__inner.md-typeset > ul > li {
+  list-style: none;
+  margin: 0 0 0.9rem -1.25rem;
+  padding: 0.85rem 1.1rem;
+  background: linear-gradient(145deg, #f5e8ec 0%, #fdf4f5 55%, #eedde4 100%);
+  border: 1px solid rgba(176, 104, 120, 0.2);
+  border-left: 3px solid #e8c8d4;
+  border-radius: 12px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-left-color 0.25s ease;
+}
+
+.md-content__inner.md-typeset > ul > li:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 28px var(--rose-shadow);
+  border-left-color: #b06878;
+}
+
+.md-content__inner.md-typeset > ul > li em {
+  display: block;
+  margin-top: 0.45rem;
+  font-size: 0.68rem;
+  font-style: normal;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--rose-warm);
+}
+
+[data-md-color-scheme="slate"] .md-content__inner.md-typeset > ul > li {
+  background: linear-gradient(145deg, #1c1022 0%, #221430 55%, #180e20 100%);
+  border-color: rgba(232, 96, 138, 0.15);
+  border-left: 3px solid rgba(232, 96, 138, 0.4);
+}
+
+[data-md-color-scheme="slate"] .md-content__inner.md-typeset > ul > li:hover {
+  border-left-color: #e8608a;
+  box-shadow: 0 10px 28px rgba(15,10,20,0.7), 0 0 20px rgba(232,96,138,0.08);
+}
+
+/* ─── Inline links — themed, accessible contrast ────────────── */
+.md-typeset a:not(.md-button):not(.md-tabs__link):not(.md-nav__link):not(.md-footer__link):not(.md-source__link):not(.md-header__button):not(.headerlink) {
+  color: #8c4a6e !important;
+  text-decoration: underline;
+  text-decoration-color: rgba(140, 74, 110, 0.35);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
+  transition: color 0.18s ease, text-decoration-color 0.18s ease;
+}
+
+.md-typeset a:not(.md-button):not(.md-tabs__link):not(.md-nav__link):not(.md-footer__link):not(.md-source__link):not(.md-header__button):not(.headerlink):hover {
+  color: #b53664 !important;
+  text-decoration-color: #b53664;
+}
+
+[data-md-color-scheme="slate"] .md-typeset a:not(.md-button):not(.md-tabs__link):not(.md-nav__link):not(.md-footer__link):not(.md-source__link):not(.md-header__button):not(.headerlink) {
+  color: #f07898 !important;
+  text-decoration-color: rgba(240, 120, 152, 0.5);
+}
+
+[data-md-color-scheme="slate"] .md-typeset a:not(.md-button):not(.md-tabs__link):not(.md-nav__link):not(.md-footer__link):not(.md-source__link):not(.md-header__button):not(.headerlink):hover {
+  color: #ffb0c4 !important;
+  text-decoration-color: #ffb0c4;
+}
+
+/* ─── Search highlight ──────────────────────────────────────── */
+.md-typeset mark, .md-search-result mark {
+  background: var(--rose-blush);
+  color: inherit;
+}
+
+/* ─── Keyboard focus ────────────────────────────────────────── */
+.md-typeset a:focus-visible {
+  outline: 2px solid #b06878;
+  outline-offset: 3px;
+  border-radius: 3px;
+}
+
+[data-md-color-scheme="slate"] .md-typeset a:focus-visible {
+  outline-color: #f07898;
+}
