@@ -6,5 +6,6 @@
 ---
 
 ### Related notes on other pages
+- PostGIS spatial joins translated to DuckDB, including fast GeoParquet clipping. See [[SQL]].
 - Groundsource, a global flood events dataset in Parquet. See [[Climate_Change]].
 - The Technical Debt of Earth Embedding Products, on GeoParquet, COG and Zarr for embeddings. See [[Remote_Sensing]].
